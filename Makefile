@@ -34,7 +34,8 @@ GNL_SRCS = $(addprefix $(GNL_DIR)/, $(GNL_SRC))
 SRC = src
 
 # === FILES ===
-SRC_GENERAL = main.c
+SRC_GENERAL = main.c clean.c parse/parse.c parse/parse_utils.c \
+			parse/validate_args.c
 
 SRCS_DIR = $(addprefix $(SRC)/, $(SRC_GENERAL)) $(GNL_SRCS)
 
