@@ -13,9 +13,9 @@ static void	check_closed_cell(t_parse *p, size_t y, size_t x)
 		parse_error("Error\nMap leaks downwards.", p);
 	if (x >= ft_strlen(p->map[y - 1]) || p->map[y - 1][x] == ' ')
 		parse_error("Error\nMap leaks upwards.", p);
-	if (p->map[y][x - 1] == ' ')
+	if (p->map[y][x - 1] == ' ' || ft_isspace(p->map[y][x - 1]))
 		parse_error("Error\nMap leaks left", p);
-	if (p->map[y][x + 1] == ' ')
+	if (p->map[y][x + 1] == ' ' || ft_isspace(p->map[y][x + 1]))
 		parse_error("Error\nMap leaks right", p);
 }
 
