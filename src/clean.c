@@ -19,6 +19,9 @@ void	parse_error(char *str, t_parse *data)
 	ft_putstr_fd("\n", 2);
 	if (data)
 	{
+		if (data->file_line)
+			free(data->file_line);
+		free_split(data->map);
 		clean_textures(data);
 		if (data->fd > 0)
 			close(data->fd);

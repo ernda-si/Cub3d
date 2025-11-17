@@ -17,29 +17,29 @@ void	init_parse(t_parse *p)
 	p->player_x = -1;
 	p->player_y = -1;
 	p->player_dir = '\0';
-	p->found_player = false;
 	p->map_started = false;
 	p->map_ended = false;
 }
 
 void	parse_file(char *file, t_parse *parse)
 {
-	char	*line;
-
 	init_parse(parse);
 	parse->fd = open(file, O_RDONLY);
 	if (parse->fd < 0)
 		parse_error("Error\nFailed opening file.", NULL);
-	while ((line = get_next_line(parse->fd)))
+	while ((parse->file_line = get_next_line(parse->fd)))
 	{
-		if(is_empty_line(line, parse))
+		if(is_empty_line(parse->file_line))
 			handle_empty_line(parse);
-		else if (is_texture_line(line))
-			parse_texture_line(line, parse);
-
-		free(line);
+		else if (is_texture_line(parse->file_line))
+			parse_texture_line(parse->file_line, parse);
+		else
+			parse_map_line(parse->file_line, parse);
+		free(parse->file_line);
 	}
 	close(parse->fd);
 	validate_textures_and_colors(parse);
+	//print_map(parse);
 	validate_map(parse);
+	//printf("passed");
 }

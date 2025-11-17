@@ -26,12 +26,12 @@ typedef struct s_parse
 	bool	ceiling_set;
 
 	char	**map;
+	char	*file_line;
 	size_t	map_width;
 	size_t	map_height;
 	int		player_x;
 	int		player_y;
-	int		player_dir;
-	bool	found_player;
+	char	player_dir;
 	bool	map_started;
 	bool	map_ended;
 } t_parse;
@@ -49,10 +49,18 @@ void	parse_error(char *str, t_parse *data);
 /*				PARSE FUNCTIONS				*/
 void	handle_empty_line(t_parse *parse);
 void	parse_file(char	*file, t_parse *parse);
+void	parse_map_line(char *line, t_parse *parse);
 void	parse_texture_line(char *line, t_parse *parse);
 void	validate_args(int ac, char **av);
 void	validate_textures_and_colors(t_parse *parse);
+void	validate_map(t_parse *parse);
+void	check_closed_map(t_parse *parse);
 bool	is_texture_line(char *line);
-bool	is_empty_line(char *line, t_parse *parse);
+bool	is_empty_line(char *line);
+
+/*					UTILS					*/
+int		ft_isspace(char c);
+int		check_digits(char *arg);
+char	**split_whitespaces(char const *s);
 
 #endif
