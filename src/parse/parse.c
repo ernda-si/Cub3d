@@ -1,27 +1,28 @@
 #include "../../includes/struct.h"
 
-void	init_parse(t_parse *p)
+void	init_data(t_data *d)
 {
-	p->fd = 0;
-	p->no = NULL;
-	p->so = NULL;
-	p->we = NULL;
-	p->ea = NULL;
-	p->floor = (t_rgb){-1, -1, -1, -1};
-	p->ceiling = (t_rgb){-1, -1, -1, -1};
-	p->floor_set = false;
-	p->ceiling_set = false;
-	p->map = NULL;
-	p->map_width = 0;
-	p->map_height = 0;
-	p->player_x = -1;
-	p->player_y = -1;
-	p->player_dir = '\0';
-	p->map_started = false;
-	p->map_ended = false;
+	d->fd = 0;
+	d->no = NULL;
+	d->so = NULL;
+	d->we = NULL;
+	d->ea = NULL;
+	d->floor = (t_rgb){-1, -1, -1, -1};
+	d->ceiling = (t_rgb){-1, -1, -1, -1};
+	d->floor_set = false;
+	d->ceiling_set = false;
+	d->map.grid = NULL;
+	d->map.width = 0;
+	d->map.height = 0;
+	d->player.x = -1;
+	d->player.y = -1;
+	d->player.dir = '\0';
+	d->file_line = NULL;
+	d->map_started = false;
+	d->map_ended = false;
 }
 
-void	parse_file(char *file, t_parse *parse)
+void	parse_file(char *file, t_data *parse)
 {
 	init_parse(parse);
 	parse->fd = open(file, O_RDONLY);
@@ -43,3 +44,14 @@ void	parse_file(char *file, t_parse *parse)
 	validate_map(parse);
 	//printf("passed");
 }
+
+// Final state after parse_file():
+//   - All texture paths (NO, SO, WE, EA) are loaded and stored in d->no / d->so etc..
+//   - Floor and ceiling RGB values are parsed and validated.
+//   - The raw map is fully loaded into parse->map.grid
+//   - Map dimensions (width/height) are computed
+//   - Player initial position (x, y) and direction (N/S/E/W) are detected and stored
+//   - The map is validated: allowed chars, single player, and closed layout.
+//   - No memory leaks remain from intermediate allocations (GNL lines, splits, fd, etc)
+//   - At this point, 'parse' contains a complete, validated game configuration
+//     ready for initialization of the game engine

@@ -3,7 +3,7 @@
 int	main(int argc, char **argv)
 {
 	//Define structs
-	t_parse	parse;
+	t_data	parse;
 	// t_map map;
 
 	(void)argc;

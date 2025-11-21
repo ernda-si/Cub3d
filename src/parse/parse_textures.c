@@ -1,6 +1,6 @@
 #include "../../includes/struct.h"
 
-static void	assign_color(t_rgb *color, char **rgb, t_parse *parse, char **split)
+static void	assign_color(t_rgb *color, char **rgb, t_data *parse, char **split)
 {
 	color->r = ft_atoi(rgb[0]);
 	color->g = ft_atoi(rgb[1]);
@@ -15,7 +15,7 @@ static void	assign_color(t_rgb *color, char **rgb, t_parse *parse, char **split)
 	color->hex = (color->r << 16) | (color->g << 8) | color->b;
 }
 
-static t_rgb	parse_rgb(char *str, t_parse *parse, char **split)
+static t_rgb	parse_rgb(char *str, t_data *parse, char **split)
 {
 	t_rgb	color;
 	char	**rgb;
@@ -43,7 +43,7 @@ static t_rgb	parse_rgb(char *str, t_parse *parse, char **split)
 	return (color);
 }
 
-static void	assign_texture(char *tmp, char **split, t_parse *parse)
+static void	assign_texture(char *tmp, char **split, t_data *parse)
 {
 	if (!ft_strncmp(split[0], "NO", 3))
 	{
@@ -71,7 +71,7 @@ static void	assign_texture(char *tmp, char **split, t_parse *parse)
 	}
 }
 
-static bool	is_dup_rgb(t_parse *parse, char **split)
+static bool	is_dup_rgb(t_data *parse, char **split)
 {
 	if (!ft_strncmp(split[0], "F", 2))
 	{
@@ -94,7 +94,7 @@ static bool	is_dup_rgb(t_parse *parse, char **split)
 	return (false);
 }
 
-void	parse_texture_line(char *line, t_parse *parse)
+void	parse_texture_line(char *line, t_data *parse)
 {
 	char	**split;
 	char	*tmp;

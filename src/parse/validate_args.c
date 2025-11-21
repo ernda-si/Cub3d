@@ -19,7 +19,7 @@ void	validate_args(int ac, char **av)
 	return ;
 }
 
-void	validate_textures_and_colors(t_parse *parse)
+void	validate_textures_and_colors(t_data *parse)
 {
 	if (!parse->no)
 		parse_error("Error\nMissing texture: NO.", parse);
@@ -35,19 +35,19 @@ void	validate_textures_and_colors(t_parse *parse)
 		parse_error("Error\nMissing ceiling color (C).", parse);
 }
 
-static void	check_allowed_chars(t_parse *parse)
+static void	check_allowed_chars(t_data *parse)
 {
 	int		y;
 	int		x;
 	char	c;
 
 	y = 0;
-	while (parse->map[y])
+	while (parse->map.grid[y])
 	{
 		x = 0;
-		while (parse->map[y][x])
+		while (parse->map.grid[y][x])
 		{
-			c = parse->map[y][x];
+			c = parse->map.grid[y][x];
 			if (c != '0' && c != '1' && c != 'N' && c != 'S' && \
 				c != 'E' && c != 'W' && c != ' ' && c != '\n')
 				parse_error("Error\nInvalid character in map.", parse);
@@ -57,7 +57,7 @@ static void	check_allowed_chars(t_parse *parse)
 	}
 }
 
-static void	check_single_player(t_parse *parse)
+static void	check_single_player(t_data *parse)
 {
 	int	y;
 	int	x;
@@ -65,17 +65,17 @@ static void	check_single_player(t_parse *parse)
 
 	player_count = 0;
 	y = 0;
-	while (parse->map[y])
+	while (parse->map.grid[y])
 	{
 		x = 0;
-		while (parse->map[y][x])
+		while (parse->map.grid[y][x])
 		{
-			if (ft_strchr("NSEW", parse->map[y][x]))
+			if (ft_strchr("NSEW", parse->map.grid[y][x]))
 			{
 				player_count++;
-				parse->player_dir = parse->map[y][x];
-				parse->player_y = y;
-				parse->player_x = x;
+				parse->player.dir = parse->map.grid[y][x];
+				parse->player.y = y;
+				parse->player.x = x;
 			}
 			x++;
 		}
@@ -85,7 +85,7 @@ static void	check_single_player(t_parse *parse)
 		parse_error("Error\nThere must be exactly one player start.", parse);
 }
 
-void	validate_map(t_parse *parse)
+void	validate_map(t_data *parse)
 {
 	check_allowed_chars(parse);
 	check_single_player(parse);

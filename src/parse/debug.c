@@ -1,19 +1,19 @@
 #include "../../includes/struct.h"
 
-void    print_map(t_parse *p)
+void    print_map(t_data *d)
 {
     int y;
 
 	y = 0;
-    if (!p->map)
+    if (!d->map.grid)
     {
         printf("(map is NULL)\n");
         return;
     }
     printf("----- MAP DEBUG -----\n");
-    while (p->map[y])
+    while (d->map.grid[y])
     {
-    	printf("%2d: \"%s\"\n", y, p->map[y]);
+    	printf("%2d: \"%s\"\n", y, d->map.grid[y]);
 		y++;
     }
     printf("---------------------\n");

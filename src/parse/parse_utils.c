@@ -16,7 +16,7 @@ bool	is_empty_line(char *line)
 	return (true);
 }
 
-void	handle_empty_line(t_parse *parse)
+void	handle_empty_line(t_data *parse)
 {
 	if (parse->map_started)
 		parse->map_ended = true;

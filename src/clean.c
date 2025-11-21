@@ -1,6 +1,6 @@
 #include "../includes/struct.h"
 
-void	clean_textures(t_parse *data)
+void	clean_textures(t_data *data)
 {
 	if (data->no)
 		free(data->no);
@@ -12,7 +12,7 @@ void	clean_textures(t_parse *data)
 		free(data->so);
 }
 
-void	parse_error(char *str, t_parse *data)
+void	parse_error(char *str, t_data *data)
 {
 	if (str)
 		ft_putstr_fd(str, 2);
@@ -21,7 +21,7 @@ void	parse_error(char *str, t_parse *data)
 	{
 		if (data->file_line)
 			free(data->file_line);
-		free_split(data->map);
+		free_split(data->map.grid);
 		clean_textures(data);
 		if (data->fd > 0)
 			close(data->fd);
