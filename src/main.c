@@ -3,13 +3,14 @@
 int	main(int argc, char **argv)
 {
 	//Define structs
+	t_data	parse;
 	// t_map map;
 
 	(void)argc;
 	(void)argv;
 	//Dev A
-	// validate_args(argc, argv);
-	// parse_map(argc, argv);
+	validate_args(argc, argv);
+	parse_file(argv[1], &parse);
 
 	//Dev B
 	// init_game();
