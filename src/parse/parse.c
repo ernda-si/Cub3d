@@ -40,8 +40,7 @@ void	parse_file(char *file, t_data *parse)
 	}
 	close(parse->fd);
 	validate_textures_and_colors(parse);
-	print_map(parse);
-	print_textures(parse);
+	//print_map(parse);
 	validate_map(parse);
 	//printf("passed");
 }
