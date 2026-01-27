@@ -24,7 +24,7 @@ void	init_data(t_data *d)
 
 void	parse_file(char *file, t_data *parse)
 {
-	init_parse(parse);
+	init_data(parse);
 	parse->fd = open(file, O_RDONLY);
 	if (parse->fd < 0)
 		parse_error("Error\nFailed opening file.", NULL);
@@ -40,7 +40,8 @@ void	parse_file(char *file, t_data *parse)
 	}
 	close(parse->fd);
 	validate_textures_and_colors(parse);
-	//print_map(parse);
+	print_map(parse);
+	print_textures(parse);
 	validate_map(parse);
 	//printf("passed");
 }
