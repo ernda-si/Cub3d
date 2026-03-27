@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:34:31 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:38:22 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include "libft.h"
+#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -26,21 +42,17 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (i + len);
 }
 // 5 6 7 8 issue //
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft.h"
-#include <string.h>
 
 void	ft_print_result(int n)
 {
-	char c;
+	char	c;
 
 	if (n >= 10)
 		ft_print_result(n / 10);
 	c = n % 10 + '0';
 	write (1, &c, 1);
 }
-
+/*
 int		main(int argc, const char *argv[])
 {
 	char	*dest;
@@ -116,4 +128,4 @@ int		main(int argc, const char *argv[])
 	}
 	return (0);
 }
-
+*/

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:33:46 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:37:04 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdio.h>
 
@@ -26,5 +38,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char src[] = "123";
 
 	printf("My memmove: %s\n", (char * )ft_memmove(dest, src, sizeof(char) * 2));
-	printf("Original memmove: %s\n", (char *)memmove(dest, src, sizeof(char) * 2));
+	printf("Og memmove: %s\n", (char *)memmove(dest, src, sizeof(char) * 2));
 } */
