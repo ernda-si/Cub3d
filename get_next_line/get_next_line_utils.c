@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:11:44 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:21:07 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
@@ -14,7 +26,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin_GNL(char *line, char *buff, size_t	line_len, size_t buff_len)
+char	*ft_strjoin_gnl(char *line, char *buff, size_t	linelen, size_t bufflen)
 {
 	size_t		i;
 	size_t		j;
@@ -22,15 +34,15 @@ char	*ft_strjoin_GNL(char *line, char *buff, size_t	line_len, size_t buff_len)
 
 	i = 0;
 	j = 0;
-	result = malloc(line_len + buff_len + 1);
+	result = malloc(linelen + bufflen + 1);
 	if (!result)
 		return (free(line), NULL);
-	while (i < line_len)
+	while (i < linelen)
 	{
 		result[i] = line[i];
 		i++;
 	}
-	while (j < buff_len)
+	while (j < bufflen)
 		result[i++] = buff[j++];
 	result[i] = '\0';
 	return (free(line), result);

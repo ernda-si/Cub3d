@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:11:40 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:21:20 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
@@ -21,7 +33,7 @@ char	*get_next_line(int fd)
 		}
 		if (bytes_read == 0)
 			break ;
-		line = ft_strjoin_GNL(line, buffer, ft_strlen(line), ft_strlen(buffer));
+		line = ft_strjoin_gnl(line, buffer, ft_strlen(line), ft_strlen(buffer));
 		if (cut_buff(buffer))
 			break ;
 	}
