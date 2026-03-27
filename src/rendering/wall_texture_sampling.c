@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   wall_texture_sampling.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:08:00 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:08:40 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 void	choose_wall_texture(t_game *game, t_img *sprite, t_point *text,
@@ -41,7 +53,8 @@ static double	texture_y_coord(t_game *game, int wall_start_y,
 	texture_offset = wall_start_y - (int)screen_center
 		+ (game->raycast.wall_height / 2);
 	return (texture_offset * ((double)sprite.h / game->raycast.wall_height)
-		+ (screen_y - wall_start_y) * ((double)sprite.h / game->raycast.wall_height));
+		+ (screen_y - wall_start_y) * ((double)sprite.h
+			/ game->raycast.wall_height));
 }
 
 static int	read_texture_pixel(t_img *sprite, t_point text)

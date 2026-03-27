@@ -6,7 +6,7 @@
 /*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 17:57:46 by mely-pan          #+#    #+#             */
-/*   Updated: 2026/03/27 18:50:16 by mely-pan         ###   ########.fr       */
+/*   Updated: 2026/03/27 21:06:28 by mely-pan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	prepare_x_step(t_game *game)
 	else
 	{
 		game->raycast.step_x = 1;
-		game->raycast.side_dist_x = (game->raycast.map_x + 1.0 - game->player.pos_x)
-			* game->raycast.delta_dist_x;
+		game->raycast.side_dist_x = game->raycast.delta_dist_x
+			* (game->raycast.map_x + 1.0 - game->player.pos_x);
 	}
 }
 
@@ -62,8 +62,8 @@ static void	prepare_y_step(t_game *game)
 	else
 	{
 		game->raycast.step_y = 1;
-		game->raycast.side_dist_y = (game->raycast.map_y + 1.0 - game->player.pos_y)
-			* game->raycast.delta_dist_y;
+		game->raycast.side_dist_y = game->raycast.delta_dist_y
+			* (game->raycast.map_y + 1.0 - game->player.pos_y);
 	}
 }
 
