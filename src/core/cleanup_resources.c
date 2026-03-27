@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cleanup_resources.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 17:03:09 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 17:49:00 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 static void	destroy_image_array(t_game *game, t_img *images, int count)
@@ -40,6 +52,7 @@ int	closex(t_game *game)
 void	free_game(t_game *game)
 {
 	int	i;
+
 	i = 0;
 	if (game->assets.ceiling.nums)
 		free(game->assets.ceiling.nums);
@@ -56,4 +69,3 @@ void	free_game(t_game *game)
 		i++;
 	}
 }
-

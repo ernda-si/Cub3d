@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   load_texture_images.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 17:04:53 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 17:56:04 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 void	img_init(t_game *game, char *filename, t_img *img)
@@ -19,9 +31,13 @@ void	img_init(t_game *game, char *filename, t_img *img)
 
 int	textures(t_game *game)
 {
-	img_init(game, game->assets.textures[NTEX].filename, &game->assets.textures[NTEX]);
-	img_init(game, game->assets.textures[ETEX].filename, &game->assets.textures[ETEX]);
-	img_init(game, game->assets.textures[WTEX].filename, &game->assets.textures[WTEX]);
-	img_init(game, game->assets.textures[STEX].filename, &game->assets.textures[STEX]);
+	img_init(game, game->assets.textures[NTEX].filename,
+		&game->assets.textures[NTEX]);
+	img_init(game, game->assets.textures[ETEX].filename,
+		&game->assets.textures[ETEX]);
+	img_init(game, game->assets.textures[WTEX].filename,
+		&game->assets.textures[WTEX]);
+	img_init(game, game->assets.textures[STEX].filename,
+		&game->assets.textures[STEX]);
 	return (1);
 }

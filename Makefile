@@ -33,7 +33,7 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 GNL_DIR = get_next_line
 MLX_DIR = minilibx-linux
-MLX = /home/eve/42/red/3Dcube/dpaes-so_cub3d_mandatory/incs/minilibx-linux/libmlx.a
+MLX = minilibx-linux/libmlx.a
 SRC = src
 
 # === SOURCES ===
@@ -84,6 +84,9 @@ $(NAME): $(OBJS_DIR) $(LIBFT) $(MLX)
 
 $(LIBFT):
 > @make -C $(LIBFT_DIR) -s
+
+$(MLX):
+> @make -C $(MLX_DIR) -s
 
 $(OBJDIR):
 > @mkdir -p $(OBJDIR)

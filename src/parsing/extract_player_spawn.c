@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   extract_player_spawn.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 17:04:49 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 17:50:31 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 void	init_player(t_game *game, char dir)
@@ -38,8 +50,8 @@ static bool	set_player_position(t_game *game, int x, int y, char cell)
 
 bool	get_player(t_game *game)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	char	cell;
 
 	y = 0;

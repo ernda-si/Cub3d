@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_map_enclosure.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 17:49:39 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 18:52:57 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 static void	change_grid(t_map *map, int x, int y)
@@ -18,7 +30,8 @@ bool	flood_map(t_map *map, int x, int y)
 {
 	if (y >= 0 && y < map->pos.y && x >= 0
 		&& x < (int)ft_strlen(map->grid[y])
-		&& map->grid[y][x] && (map->grid[y][x] == '1' || map->grid[y][x] == 'o'))
+		&& map->grid[y][x] &&
+			(map->grid[y][x] == '1' || map->grid[y][x] == 'o'))
 		return (true);
 	if (y < 0 || y >= map->pos.y || x < 0
 		|| x >= (int)ft_strlen(map->grid[y]) || map->grid[y][x] == '\0'
@@ -35,4 +48,3 @@ bool	flood_map(t_map *map, int x, int y)
 		return (false);
 	return (true);
 }
-

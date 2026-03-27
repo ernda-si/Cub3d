@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   texture_config_validation.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 17:49:29 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 17:56:49 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
 
 static void	parse_color_line(char *line, t_game *game, bool is_ceiling)
@@ -29,7 +41,8 @@ static void	check_walls(char *line, t_game *game)
 		if (ft_strncmp(line, letters[i], 3) == 0
 			&& !game->assets.textures[i].filename)
 		{
-			if (check_texture(line, &game->assets.textures[i].filename, 'W') == false)
+			if (check_texture(line,
+					&game->assets.textures[i].filename, 'W') == false)
 			{
 				free(line);
 				print_errors(game, 1, "Invalid texture line");

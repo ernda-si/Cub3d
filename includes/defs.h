@@ -2,9 +2,9 @@
 # define CUB3D_DEFS_H
 
 # include "../libft/libft.h"
-# include "math.h"
 # include "../minilibx-linux/mlx.h"
 # include "../get_next_line/get_next_line.h"
+# include <math.h>
 # include <X11/X.h>
 # include <fcntl.h>
 # include <stdbool.h>
