@@ -1,5 +1,17 @@
-#ifndef CUB3D_FUNCTIONS_H
-# define CUB3D_FUNCTIONS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   functions.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:24:35 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:26:21 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FUNCTIONS_H
+# define FUNCTIONS_H
 
 # include "types.h"
 

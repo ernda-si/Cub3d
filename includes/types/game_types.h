@@ -1,5 +1,17 @@
-#ifndef CUB3D_GAME_TYPES_H
-# define CUB3D_GAME_TYPES_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game_types.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mely-pan <mely-pan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 21:24:57 by mely-pan          #+#    #+#             */
+/*   Updated: 2026/03/27 21:29:18 by mely-pan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GAME_TYPES_H
+# define GAME_TYPES_H
 
 enum				e_move
 {
@@ -15,11 +27,11 @@ typedef struct s_view_flags
 {
 	bool				is_turning_right;
 	bool				is_turning_left;
-} 					t_view_flags;
+}					t_view_flags;
 
 typedef struct s_game
 {
-	int				fd;
+	int					fd;
 	void				*mlx;
 	void				*win;
 
@@ -33,6 +45,6 @@ typedef struct s_game
 
 	double				wall_distance;
 	int					movement_state[6];
-} 					t_game;
+}					t_game;
 
 #endif
