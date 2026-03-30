@@ -20,6 +20,12 @@ void	img_init(t_game *game, char *filename, t_img *img)
 		dprintf(2, "Error: failed to load %s\n", filename);
 		closex(game);
 	}
+	if (img->w != 64 || img->h != 64)
+	{
+		dprintf(2, "Error: .xpm File should represent a 64x64 image (%s)\n",
+			filename);
+		closex(game);
+	}
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	if (img->addr == NULL)
